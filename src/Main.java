@@ -3,8 +3,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//testing
+		Finbashu test = new Finbashu('♂', "ぐんし", 3);
 
+		test.monster.showAllStatus();
 	}
-
 }
