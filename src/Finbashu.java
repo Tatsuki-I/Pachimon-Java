@@ -7,7 +7,14 @@ import sun.reflect.generics.repository.GenericDeclRepository;
 public class Finbashu {
     Monster monster;
 
-    Finbashu(final char GENDER, String N_NAME, int C_LEVEL) {
-        this.monster = new Monster("ヒュンバシュ", 1, 100, N_NAME, GENDER, C_LEVEL);
+    Finbashu(final char GENDER, String N_NAME, int C_LEVEL,
+
+             final int SKILL_ID0,
+             final int SKILL_ID1,
+             final int SKILL_ID2,
+             final int SKILL_ID3){
+        this.monster = new Monster(
+                "フィンバシュ", 1, 100, N_NAME, GENDER, C_LEVEL,
+                SKILL_ID0, SKILL_ID1, SKILL_ID2, SKILL_ID3);
     }
 }
