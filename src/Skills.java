@@ -14,13 +14,9 @@ public class Skills {
     }
 
     void showSkills() {
-        System.out.println("技 1");
-        this.skills[0].showSkill();
-        System.out.println("技 2");
-        this.skills[1].showSkill();
-        System.out.println("技 3");
-        this.skills[2].showSkill();
-        System.out.println("技 4");
-        this.skills[3].showSkill();
+        for (int i = 0; i < this.NUM_OF_SKILL; i++) {
+            System.out.println("技 " + i);
+            this.skills[i].showSkill();
+        }
     }
 }
