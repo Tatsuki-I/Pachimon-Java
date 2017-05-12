@@ -7,7 +7,7 @@ public class Monster {
 
 	String species;
 
-	int hp;
+	int currentHp;
 
 	int maxHp;
 
