@@ -22,10 +22,7 @@ public class Monster {
 			final char GENDER,
 			final int C_LEVEL,
 
-			final int SKILL_ID0,
-			final int SKILL_ID1,
-			final int SKILL_ID2,
-			final int SKILL_ID3) {
+			final int SKILL_ID[]) {
 		this.SPIECIES = SPIECIES;
 		this.MY_TYPE = new Type(TYPE_NUM);
 		this.SHUZOKUCHI = SHUZOKUCHI;
@@ -34,7 +31,7 @@ public class Monster {
 		this.setCurrentLevel(C_LEVEL);
 		this.setHp();
 		this.setCurrentHp(this.maxHp);
-		this.skills = new Skills(SKILL_ID0, SKILL_ID1, SKILL_ID2, SKILL_ID3);
+		this.skills = new Skills(SKILL_ID);
 	}
 
 	void setCurrentLevel(final int C_LEVEL) {
