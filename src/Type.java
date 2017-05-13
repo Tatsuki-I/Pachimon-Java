@@ -19,6 +19,9 @@ public class Type {
 			case 2:
 				this.typeName = "くさ";
 				break;
+			case 3:
+				this.typeName = "ノーマル";
+				break;
 		}
 	}
 }

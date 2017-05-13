@@ -16,12 +16,20 @@ public class Skill {
 			case 1:
 				this.NAME = "たいあたり";
 				this.ATK = 50;
-				this.TYPE = new Type(1);
+				this.TYPE = new Type(3);
 				break;
+			case 2:
+				this.NAME = "じたばた";
+				this.ATK = 25;
+				this.TYPE = new Type(3);
+			case 3:
+				this.NAME = "わるあがき";
+				this.ATK = 40;
+				this.TYPE = new Type(3);
 			default:
 				this.NAME = "はねる";
 				this.ATK = 0;
-				this.TYPE = new Type(0);
+				this.TYPE = new Type(3);
 		}
 	}
 
