@@ -13,7 +13,7 @@ public class Monster {
 	private int currentHp;				//現在のHP
 	private int maxHp;					//HPの上限値
 
-	Skills skills;				//技
+	Skills skills;						//技
 
 	Monster(final String SPIECIES,
 			final int TYPE_NUM,
