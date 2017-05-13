@@ -1,6 +1,3 @@
-/**
- * Created by Tatsuki-I on 2017/05/12.
- */
 public class Skills {
     Skill skills[];
     final int NUM_OF_SKILL = 4;
