@@ -1,4 +1,3 @@
-
 public class Finbashu {
     Monster monster;
 

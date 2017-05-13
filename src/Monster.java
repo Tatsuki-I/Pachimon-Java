@@ -1,4 +1,3 @@
-
 public class Monster {
 
 	private final String SPIECIES;		//種族名
@@ -59,5 +58,4 @@ public class Monster {
 		System.out.println("現在のHP\t\t" + this.currentHp);
 		System.out.println("HPの上限値\t\t" + this.maxHp);
 	}
-
 }
