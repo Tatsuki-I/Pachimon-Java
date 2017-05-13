@@ -1,9 +1,4 @@
-import com.sun.org.apache.bcel.internal.generic.GETFIELD;
-import sun.reflect.generics.repository.GenericDeclRepository;
 
-/**
- * Created by Tatsuki-I on 2017/05/12.
- */
 public class Finbashu {
     Monster monster;
 

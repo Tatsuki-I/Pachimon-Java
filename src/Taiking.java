@@ -1,9 +1,8 @@
 
 public class Taiking {
-	//Monster taiking = new  Monster("タイキング", 1, 100, '男');
-	
-	Taiking(final char GENDER) {
-		//this.GENDER =
-		//taiking =
-	}
+    Monster monster;
+
+    Taiking(final char GENDER, String N_NAME, int C_LEVEL) {
+        this.monster = new Monster("タイキング", 1, 100, N_NAME, GENDER, C_LEVEL);
+    }
 }
