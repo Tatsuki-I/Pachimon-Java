@@ -1,4 +1,3 @@
-
 public class Type {
 	int type;
 	String typeName;

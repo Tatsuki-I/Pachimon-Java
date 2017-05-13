@@ -6,7 +6,6 @@ public class Skills {
         this.skills = new Skill[this.NUM_OF_SKILL];
         for (int i = 0; i < this.NUM_OF_SKILL; i++) {
             this.skills[i] = new Skill(SKILL_ID[i]);
-            System.out.println(this.skills[i].TYPE);
         }
     }
 

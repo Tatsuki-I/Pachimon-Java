@@ -1,4 +1,3 @@
-
 public class Skill {
 
 	String NAME;
@@ -38,5 +37,4 @@ public class Skill {
 		System.out.println("\t攻撃力\t\t\t" + this.ATK);
 		System.out.println("\t技のタイプ\t\t" + this.TYPE);
 	}
-
 }

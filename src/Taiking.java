@@ -1,4 +1,3 @@
-
 public class Taiking {
     Monster monster;
 
