@@ -1,18 +1,18 @@
 public class Skills {
-    Skill skills[];
-    final int NUM_OF_SKILL = 4;
+	Skill skills[];
+	final int NUM_OF_SKILL = 4;
 
-    Skills(final int SKILL_ID[]) {
-        this.skills = new Skill[this.NUM_OF_SKILL];
-        for (int i = 0; i < this.NUM_OF_SKILL; i++) {
-            this.skills[i] = new Skill(SKILL_ID[i]);
-        }
-    }
+	Skills(final int SKILL_ID[]) {
+		this.skills = new Skill[this.NUM_OF_SKILL];
+		for (int i = 0; i < this.NUM_OF_SKILL; i++) {
+			this.skills[i] = new Skill(SKILL_ID[i]);
+		}
+	}
 
-    void showSkills() {
-        for (int i = 0; i < this.NUM_OF_SKILL; i++) {
-            System.out.println("技 " + (i + 1));
-            this.skills[i].showSkill();
-        }
-    }
+	void showSkills() {
+		for (int i = 0; i < this.NUM_OF_SKILL; i++) {
+			System.out.println("技 " + (i + 1));
+			this.skills[i].showSkill();
+		}
+	}
 }
