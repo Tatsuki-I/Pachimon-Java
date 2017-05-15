@@ -8,11 +8,13 @@ public class Battle {
 			System.out.println(p1.nickname + "のわざを選択してください");
 			p1.skills.showSkills();
 			System.out.print("> ");
+			final int P1_SKILL_NO = new java.util.Scanner(System.in).nextInt();
+
 			System.out.println(p2.nickname + "のわざを選択してください");
 			p2.skills.showSkills();
 			System.out.print("> ");
-			final int P1_SKILL_NO = new java.util.Scanner(System.in).nextInt();
 			final int P2_SKILL_NO = new java.util.Scanner(System.in).nextInt();
+			
 			if (p1.speed > p2.speed) {
 				doBattle(p1, p2, P1_SKILL_NO, P2_SKILL_NO);
 			} else {
