@@ -26,7 +26,7 @@ public class Skill {
 
 			case 3:
 				this.NAME = "わるあがき";
-				this.ATK = 40;
+				this.ATK = 200;
 				this.TYPE = new Type(3);
                 break;
 
