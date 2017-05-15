@@ -1,6 +1,6 @@
 public class Skills {
 	Skill skills[];
-	final int NUM_OF_SKILL = 4;
+	private final int NUM_OF_SKILL = 4;
 
 	Skills(final int SKILL_ID[]) {
 		this.skills = new Skill[this.NUM_OF_SKILL];

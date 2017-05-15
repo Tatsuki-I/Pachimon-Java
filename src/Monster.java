@@ -41,12 +41,15 @@ public class Monster {
 		this.currentLevel = C_LEVEL;
 	}
 
+	//HPの最大値は現在のレベルの10倍とする
 	void setMaxHp() {
 		this.maxHp = this.currentLevel * 10;
 	}
 
+	//HPを変更する
 	void setCurrentHp(final int C_HP) {
 		this.currentHp = C_HP;
+		//HPが0になるとisDeadの値をtrueにする
 		if (C_HP == 0) {
 			this.isDead = true;
 			System.out.println(this.nickname + "はたおれた");
@@ -65,6 +68,7 @@ public class Monster {
 		return isDead ? "ひんし" : "ひんしではありません";
 	}
 
+	//アクセサ
 	int speed() {
 		return this.speed;
 	}
@@ -90,6 +94,7 @@ public class Monster {
 		System.out.println("死んでるか\t\t" + this.showIsDead());
 	}
 
+	//ダメージを受ける
 	void getDamage(final Monster ENEMY, final int SKILL_NO) {
 		System.out.println(ENEMY.nickname + "の" + ENEMY.skills.skills[SKILL_NO].NAME);
 		System.out.println(this.nickname + "に" + ENEMY.skills.skills[SKILL_NO].ATK + "のダメージ");
