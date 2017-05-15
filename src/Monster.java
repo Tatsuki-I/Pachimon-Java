@@ -86,7 +86,7 @@ public class Monster {
 		System.out.println("現在のレベル\t" + this.currentLevel);
 		System.out.println("現在のHP\t\t" + this.currentHp);
 		System.out.println("HPの上限値\t\t" + this.maxHp);
-		System.out.println("すばやさ\t\t\t" + this.speed);
+		System.out.println("すばやさ\t\t" + this.speed);
 		System.out.println("死んでるか\t\t" + this.showIsDead());
 	}
 
