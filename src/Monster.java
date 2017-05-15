@@ -9,11 +9,11 @@ public class Monster {
 	private final char GENDER;			//性別
 	private int currentLevel;			//現在のレベル
 	private final int MAX_LEVEL = 100;	//レベルの上限値
-	int currentHp;				//現在のHP
+	private int currentHp;				//現在のHP
 	private int maxHp;					//HPの上限値
-	int speed;					//すばやさ
+	private int speed;					//すばやさ
 
-	boolean isDead = false;
+	private boolean isDead = false;
 
 	Skills skills;						//技
 
@@ -63,6 +63,18 @@ public class Monster {
 
 	String showIsDead() {
 		return isDead ? "ひんし" : "ひんしではありません";
+	}
+
+	int speed() {
+		return this.speed;
+	}
+
+	boolean isDead() {
+		return this.isDead;
+	}
+
+	int currentHp() {
+		return this.currentHp;
 	}
 
 	void showAllStatus() {
