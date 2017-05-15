@@ -9,7 +9,7 @@ public class Monster {
 	private final char GENDER;			//性別
 	private int currentLevel;			//現在のレベル
 	private final int MAX_LEVEL = 100;	//レベルの上限値
-	private int currentHp;				//現在のHP
+	int currentHp;				//現在のHP
 	private int maxHp;					//HPの上限値
 	int speed;					//すばやさ
 

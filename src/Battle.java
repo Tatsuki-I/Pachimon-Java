@@ -31,8 +31,10 @@ public class Battle {
 
 	void doBattle(Monster faster, Monster slower, final int FASTER_SKILL_NO, final int SLOWER_SKILL_NO) {
 		slower.getDamage(faster, FASTER_SKILL_NO);
+		System.out.println(slower.nickname + "の残りHPは" + slower.currentHp);
 		if(!slower.isDead) {
 			faster.getDamage(slower, SLOWER_SKILL_NO);
+			System.out.println(faster.nickname + "の残りHPは" + faster.currentHp);
 		}
 	}
 }
