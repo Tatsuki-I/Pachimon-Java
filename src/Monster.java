@@ -12,6 +12,8 @@ public class Monster {
 	private int currentHp;				//現在のHP
 	private int maxHp;					//HPの上限値
 
+	boolean isDead = false;
+
 	Skills skills;						//技
 
 	Monster(final String SPIECIES,
@@ -43,11 +45,20 @@ public class Monster {
 
 	void setCurrentHp(final int C_HP) {
 		this.currentHp = C_HP;
+		if (C_HP == 0) {
+			this.isDead = true;
+			System.out.println(this.nickname + "はたおれた");
+		}
 	}
 
     void setNickname(final String N_NAME) {
 		this.nickname = N_NAME;
     }
+
+	String showIsDead() {
+		return isDead ? "ひんし" : "ひんしではありません";
+	}
+
 	void showAllStatus() {
 		System.out.println("種族名\t\t\t" + this.SPIECIES);
 		System.out.println("タイプ\t\t\t" + this.MY_TYPE.typeName);
@@ -57,5 +68,16 @@ public class Monster {
 		System.out.println("現在のレベル\t" + this.currentLevel);
 		System.out.println("現在のHP\t\t" + this.currentHp);
 		System.out.println("HPの上限値\t\t" + this.maxHp);
+		System.out.println("死んでるか\t\t" + this.showIsDead());
+	}
+
+	void getDamage(final Monster ENEMY, final int SKILL_NO) {
+		System.out.println(ENEMY.nickname + "の" + ENEMY.skills.skills[SKILL_NO].NAME);
+		System.out.println(this.nickname + "に" + ENEMY.skills.skills[SKILL_NO].ATK + "のダメージ");
+		if (this.currentHp < ENEMY.skills.skills[SKILL_NO].ATK)
+			this.setCurrentHp(0);
+		else {
+			this.setCurrentHp(this.currentHp - ENEMY.skills.skills[SKILL_NO].ATK);
+		}
 	}
 }

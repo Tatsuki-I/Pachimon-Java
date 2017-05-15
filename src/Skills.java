@@ -15,4 +15,6 @@ public class Skills {
 			this.skills[i].showSkill();
 		}
 	}
+
+
 }
