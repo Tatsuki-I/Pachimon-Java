@@ -17,7 +17,8 @@ public class Main {
 		test.monster.showAllStatus();
 		test.monster.skills.showSkills();
 		tai1.monster.showAllStatus();
-		tai1.monster.getDamage(fin1.monster, 0);
-		tai1.monster.showAllStatus();
+		new Battle().startBattle(tai1.monster, fin1.monster);
+		//tai1.monster.getDamage(fin1.monster, 0);
+		//tai1.monster.showAllStatus();
 	}
 }

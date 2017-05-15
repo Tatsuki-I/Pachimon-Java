@@ -11,7 +11,7 @@ public class Skills {
 
 	void showSkills() {
 		for (int i = 0; i < this.NUM_OF_SKILL; i++) {
-			System.out.println("技 " + (i + 1));
+			System.out.println("技 " + i);
 			this.skills[i].showSkill();
 		}
 	}

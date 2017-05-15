@@ -5,12 +5,13 @@ public class Monster {
 	private final int SHUZOKUCHI;		//種族値
 
 
-	private String nickname;			//ニックネーム
+	String nickname;			//ニックネーム
 	private final char GENDER;			//性別
 	private int currentLevel;			//現在のレベル
 	private final int MAX_LEVEL = 100;	//レベルの上限値
 	private int currentHp;				//現在のHP
 	private int maxHp;					//HPの上限値
+	int speed;					//すばやさ
 
 	boolean isDead = false;
 
@@ -30,8 +31,9 @@ public class Monster {
 		this.setNickname(N_NAME);
 		this.GENDER = GENDER;
 		this.setCurrentLevel(C_LEVEL);
-		this.setHp();
+		this.setMaxHp();
 		this.setCurrentHp(this.maxHp);
+		this.setSpeed();
 		this.skills = new Skills(SKILL_ID);
 	}
 
@@ -39,7 +41,7 @@ public class Monster {
 		this.currentLevel = C_LEVEL;
 	}
 
-	void setHp() {
+	void setMaxHp() {
 		this.maxHp = this.currentLevel * 10;
 	}
 
@@ -51,7 +53,11 @@ public class Monster {
 		}
 	}
 
-    void setNickname(final String N_NAME) {
+	void setSpeed() {
+		this.speed = this.currentLevel * 10;
+	}
+
+	void setNickname(final String N_NAME) {
 		this.nickname = N_NAME;
     }
 
@@ -68,6 +74,7 @@ public class Monster {
 		System.out.println("現在のレベル\t" + this.currentLevel);
 		System.out.println("現在のHP\t\t" + this.currentHp);
 		System.out.println("HPの上限値\t\t" + this.maxHp);
+		System.out.println("すばやさ\t\t\t" + this.speed);
 		System.out.println("死んでるか\t\t" + this.showIsDead());
 	}
 
