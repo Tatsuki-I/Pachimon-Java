@@ -22,19 +22,19 @@ public class Skill {
 				this.NAME = "じたばた";
 				this.ATK = 25;
 				this.TYPE = new Type(3);
-                break;
+				break;
 
 			case 3:
 				this.NAME = "わるあがき";
 				this.ATK = 200;
 				this.TYPE = new Type(3);
-                break;
+				break;
 
 			default:
 				this.NAME = "はねる";
 				this.ATK = 0;
 				this.TYPE = new Type(3);
-                break;
+				break;
 		}
 	}
 

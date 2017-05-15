@@ -5,7 +5,7 @@ public class Monster {
 	private final int SHUZOKUCHI;		//種族値
 
 
-	String nickname;			//ニックネーム
+	String nickname;					//ニックネーム
 	private final char GENDER;			//性別
 	private int currentLevel;			//現在のレベル
 	private final int MAX_LEVEL = 100;	//レベルの上限値
@@ -13,7 +13,7 @@ public class Monster {
 	private int maxHp;					//HPの上限値
 	private int speed;					//すばやさ
 
-	private boolean isDead = false;
+	private boolean isDead = false;		//死んでいるか否か、初期値はfalse
 
 	Skills skills;						//技
 

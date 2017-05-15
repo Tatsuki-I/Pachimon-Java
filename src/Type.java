@@ -12,12 +12,15 @@ public class Type {
 			case 0:
 				this.typeName = "ほのお";
 				break;
+
 			case 1:
 				this.typeName = "みず";
 				break;
+
 			case 2:
 				this.typeName = "くさ";
 				break;
+
 			case 3:
 				this.typeName = "ノーマル";
 				break;
