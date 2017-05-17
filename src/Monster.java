@@ -82,12 +82,12 @@ public class Monster {
 	}
 
 	void showAllStatus() {
-		System.out.println("種族名\t\t\t" + this.SPIECIES);
+		System.out.println("種族名\t\t" + this.SPIECIES);
 		System.out.println("タイプ\t\t\t" + this.MY_TYPE.typeName);
-		System.out.println("種族値\t\t\t" + this.SHUZOKUCHI);
-		System.out.println("ニックネーム\t" + this.nickname);
+		System.out.println("種族値\t\t" + this.SHUZOKUCHI);
+		System.out.println("ニックネーム\t\t" + this.nickname);
 		System.out.println("性別\t\t\t" + this.GENDER);
-		System.out.println("現在のレベル\t" + this.currentLevel);
+		System.out.println("現在のレベル\t\t" + this.currentLevel);
 		System.out.println("現在のHP\t\t" + this.currentHp);
 		System.out.println("HPの上限値\t\t" + this.maxHp);
 		System.out.println("すばやさ\t\t" + this.speed);
