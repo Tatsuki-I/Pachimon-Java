@@ -52,7 +52,7 @@ public class Monster {
 		//HPが0になるとisDeadの値をtrueにする
 		if (C_HP == 0) {
 			this.isDead = true;
-			System.out.println(this.nickname + "はたおれた");
+			Gui.battleSetTextPanel(this.nickname + "はたおれた");
 		}
 	}
 
@@ -96,8 +96,8 @@ public class Monster {
 
 	//ダメージを受ける
 	void getDamage(final Monster ENEMY, final int SKILL_NO) {
-		System.out.println(ENEMY.nickname + "の" + ENEMY.skills.skills[SKILL_NO].NAME);
-		System.out.println(this.nickname + "に" + ENEMY.skills.skills[SKILL_NO].ATK + "のダメージ");
+		Gui.battleSetTextPanel(ENEMY.nickname + "の" + ENEMY.skills.skills[SKILL_NO].NAME);
+		Gui.battleSetTextPanel(this.nickname + "に" + ENEMY.skills.skills[SKILL_NO].ATK + "のダメージ");
 		if (this.currentHp < ENEMY.skills.skills[SKILL_NO].ATK)
 			this.setCurrentHp(0);
 		else {

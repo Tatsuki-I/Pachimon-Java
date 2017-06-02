@@ -1,8 +1,7 @@
 public class Main {
 	public static void main(String[] args) {
 
-		Trainer satoshi = new Trainer(1,1);
-
-		Gui ts1 = new Gui("パチモン", satoshi);
+		Trainer satoshi = new Trainer(4,4,"佐渡氏");
+		Gui start = new Gui("パチモン", satoshi);
 	}
 }
