@@ -3,8 +3,8 @@ import java.awt.event.KeyListener;
 
 public class KeyEvent extends Applet implements KeyListener{
 
-	Trainer player;
-	Gui play;
+	private Trainer player;
+	private Gui play;
 
 	KeyEvent(Trainer PLAYER,Gui PLAY){
 		this.player = PLAYER;
@@ -43,6 +43,9 @@ public class KeyEvent extends Applet implements KeyListener{
 		if(Key == '5'){
 			if((!Battle.skillButton) && this.player.getCurrentBattle()){
 				Gui.Layout.next(Gui.changePanel);
+				this.play.frameFocus();
+				Gui.battleTextPanelReset();
+				this.player.setCurrentBattle(false);
 			}
 		}
 	}

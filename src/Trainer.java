@@ -123,5 +123,8 @@ public class Trainer {
 	public boolean getCurrentBattle(){
 		return this.currentBattle;
 	}
+	public void setCurrentBattle(final boolean set){
+		this.currentBattle = false;
+	}
 }
 

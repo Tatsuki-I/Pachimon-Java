@@ -115,21 +115,30 @@ public class Gui{
 
 		//画面の切り替え
 		Gui.Layout = new CardLayout();
-		
+
 		Gui.changePanel = new JPanel();
 		Gui.changePanel.add(this.battlePanel);
 		Gui.changePanel.add(this.boardPanel);
 		Gui.changePanel.setLayout(Layout);
-
+		Gui.changePanel.addKeyListener(new KeyEvent(player,this));
 		this.frame.getContentPane().add(changePanel);
 		this.frame.setVisible(true);
 
 		Gui.Layout.next(Gui.changePanel);
-		
+
 		this.frame.addKeyListener(new KeyEvent(player,this));
 
 		this.guiDisplay();
 
+	}
+	void frameFocus(){
+		this.frame.requestFocusInWindow();
+	}
+	static void battleTextPanelReset(){
+		for(int i = 0;i < Gui.battleSet.length;i++){
+			Gui.battleSet[i].setText("");
+			Gui.battleSetTextStr[i] = "";
+		}
 	}
 	//マップの再読み込み
 	void guiDisplay(){
