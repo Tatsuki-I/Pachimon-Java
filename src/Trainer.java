@@ -15,69 +15,63 @@ public class Trainer {
 	Trainer(final int Y,final int X,final String NAME){
 		this.currentY = Y;
 		this.currentX = X;
-		Finbashu temoti1 = new Finbashu('♂', "フィンバシュ", 100,new int[]{0,1,2,3});
-		this.hasMonsters[0] = temoti1.monster;
+		Monster temoti1 = new Finbashu("武志",90);
+		this.hasMonsters[0] = temoti1;
 	}
-	void move(final int Y,final int X){
-		this.currentY = Y;
-		this.currentX = X;
-	}
-
-	void upMove(){
-		this.face = "↑";
-		if (this.currentY > 0
-				&& ((Map.place()[this.currentY - 1][this.currentX] != 2 && waveRide == false)
-				|| (Map.place()[this.currentY - 1][this.currentX] == 2 && waveRide == true))){
-			this.currentY--;
-			encounter();
-		}
-		Map.screen(this.currentY,this.currentX);
-	}
-	void downMove(){
-		this.face = "↓";
-		if(this.currentY < Map.HEIGHT-1
-				&& ((Map.place()[this.currentY + 1][this.currentX] != 2 && waveRide == false)
-				|| (Map.place()[this.currentY + 1][this.currentX] == 2 && waveRide == true))){
-			this.currentY++;
-			encounter();
-		}
-		Map.screen(this.currentY,this.currentX);
-	}
-	void leftMove(){
-		this.face = "←";
-		if(this.currentX > 0
-				&& ((Map.place()[this.currentY][this.currentX - 1] != 2 && waveRide == false)
-				|| (Map.place()[this.currentY][this.currentX - 1] == 2 && waveRide == true))){
-			this.currentX--;
-		}
-		Map.screen(this.currentY,this.currentX);
-	}
-	void rightMove(){
-		this.face = "→";
-		if(this.currentX < Map.WIDTH-1
-				&& ((Map.place()[this.currentY][this.currentX + 1] != 2 && waveRide == false)
-				|| (Map.place()[this.currentY][this.currentX + 1] == 2 && waveRide == true))){
-			this.currentX++;
-		}
-		Map.screen(this.currentY,this.currentX);
-		int[] a = new int[]{1,2,3};
-	}
-	void encounter(){
-		switch(Map.place()[this.currentY][this.currentX]){
+	//移動(上・下・左・右)(1・2・3・4)
+	public void move(final int MOVE){
+		switch(MOVE){
 			case 1:
-				if(new java.util.Random().nextInt(3) == 0){
-					this.currentBattle = true;
-					new Battle(this.hasMonsters[0],new Finbashu('♂',"近藤", 5,new int[]{1,2,3,0}).monster);
+				this.face = "↑";
+				if(this.validateMove(this.currentY-1,this.currentX)){
+					this.currentY--;
+					encounter();
 				}
 				break;
 			case 2:
-				if(new java.util.Random().nextInt(5) == 0){
-					this.currentBattle = true;
-					new Battle(this.hasMonsters[0],new Finbashu('♂',"近藤", 5,new int[]{1,2,3,0}).monster);
+				this.face = "↓";
+				if(this.validateMove(this.currentY+1,this.currentX)){
+					this.currentY++;
+					encounter();
 				}
+				break;
+			case 3:
+				this.face = "←";
+				if(this.validateMove(this.currentY,this.currentX-1)){
+					this.currentX--;
+					encounter();
+				}
+				break;
+			case 4:
+				this.face = "→";
+				if(this.validateMove(this.currentY,this.currentX+1)){
+					this.currentX++;
+					encounter();
+				}
+				break;
+		}
+		Map.screen(this.currentY,this.currentX);
+	}
+	//移動が可能かどうかの確認、booleanで返す
+	private boolean validateMove(final int Y,final int X){
+		if (Y >= 0 && Y <= Map.HEIGHT && X >= 0 && X <= Map.WIDTH
+		&& ((Map.place()[Y][X] != 2 && waveRide == false)
+		|| (Map.place()[Y][X] == 2 && waveRide == true))){
+			return true;
+		}
+		return false;
+	}
+	//パチモンと遭遇した時の処理
+	public void encounter(){
+		Monster enemy = Map.appear(this.currentY, this.currentX);
+		if(enemy != null){
+			System.out.println("バトルが始まりました");
+			this.setCurrentBattle(true);
+			new Battle(this.hasMonsters[0],enemy);
 		}
 	}
-	void action(){
+	//マップ画面で５キーを押したときの向きを読み込む
+	public void action(){
 		int y = 0,x = 0;
 		if(this.face.equals("↑")){
 			y--;
@@ -90,7 +84,8 @@ public class Trainer {
 		}
 		action(y,x);
 	}
-	void action(final int Y,final int X){
+	//マップ画面で５キーを押したときの行動
+	public void action(final int Y,final int X){
 		if(this.currentY+Y < 0 || this.currentX+X < 0
 		||	this.currentY+Y >= Map.HEIGHT || this.currentX+X >= Map.WIDTH){
 			Gui.mapSetTextPanel("壁です");
@@ -99,32 +94,62 @@ public class Trainer {
 					if(this.waveRide == false){
 						this.waveRide = true;
 						Gui.mapSetTextPanel("なみのりを使いました");
-						move(this.currentY+Y,this.currentX+X);
+						this.currentY += Y;
+						this.currentX += X;
 					}
 						break;
 				default:
 					if(this.waveRide == true){
 						this.waveRide = false;
 						Gui.mapSetTextPanel("なみのりを解除しました");
-						move(this.currentY+Y,this.currentX+X);
+						this.currentY += Y;
+						this.currentX += X;
 					}
 					break;
 		}
 	}
-	public int[] getCurrentPlace(){
-		return new int[]{this.currentY,this.currentX};
-	}
-	public String getFace() {
-		return this.face;
-	}
+	//ここから下、getterとsetter
+	//*************************************************************************
+
+	//playerの座標を取得
+	//－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+	public int getCurrentY(){return this.currentY;}
+	public int getCurrentX(){return this.currentX;}
+	//－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+
+
+	//手持ちのモンスターを取得
+	//－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 	public Monster getHasMonsters(final int MonsterNM){
 		return this.hasMonsters[MonsterNM];
 	}
+	//－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+
+	//手持ちのモンスターを設定する
+	//－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+	public void setHasMonsters(final int MonsterNM,Monster myMonster){
+		if(MonsterNM >= 0 && MonsterNM <= 5){
+			throw new IllegalArgumentException("setHasMonstersの引数MonsterNMに正しくない値が入力されています。=" + MonsterNM);
+		}
+		if(myMonster == null){
+			throw new IllegalArgumentException("setHasMonstersの引数myMonsterにnullが入力されています");
+		}
+		this.hasMonsters[MonsterNM] = myMonster;
+	}
+	//－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+
+	//顔の向きを取得
+	public String getFace() {return this.face;}
+
+
+	//currentBattleのgetterとsetter
+	//－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 	public boolean getCurrentBattle(){
 		return this.currentBattle;
 	}
-	public void setCurrentBattle(final boolean set){
-		this.currentBattle = false;
+	public void setCurrentBattle(final boolean SET){
+		this.currentBattle = SET;
 	}
+	//－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 }
 
